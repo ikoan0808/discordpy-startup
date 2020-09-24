@@ -1,4 +1,4 @@
-token = 'NzU3OTc1Njc2ODAzMzUwNjA5.X2oN2w.24UQmgCb_C0VBmKveYXUxxS6yHQ'
+token = 'DISCORD_BOT_TOKEN'
 
 import time
 import requests
