@@ -1,8 +1,17 @@
+from discord.ext import commands
+import os
+import traceback
+
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
+
 import time
 import requests
 import json
 import copy
 from datetime import datetime, timedelta, timezone
+
+bot.run(token)
 
 Hololive = {
     "UCp6993wxpyDPHUpavwDFqgg": [
