@@ -1,9 +1,4 @@
-from discord.ext import commands
-import os
-import traceback
-
-bot = commands.Bot(command_prefix='/')
-token = os.environ['DISCORD_BOT_TOKEN']
+token = 'NzU3OTc1Njc2ODAzMzUwNjA5.X2oN2w.24UQmgCb_C0VBmKveYXUxxS6yHQ'
 
 import time
 import requests
