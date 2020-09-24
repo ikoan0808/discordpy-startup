@@ -4,6 +4,27 @@ import json
 import copy
 from datetime import datetime, timedelta, timezone
 
+from discord.ext import commands
+import os
+import traceback
+
+bot = commands.Bot(command_prefix='/')
+token = os.environ['DISCORD_BOT_TOKEN']
+
+@bot.event
+async def on_command_error(ctx, error):
+    orig_error = getattr(error, "original", error)
+    error_msg = ''.join(traceback.TracebackException.from_exception(orig_error).format())
+    await ctx.send(error_msg)
+
+
+@bot.command()
+async def ping(ctx):
+    await ctx.send('pong')
+
+
+bot.run(token)
+
 Hololive = {
     "UCp6993wxpyDPHUpavwDFqgg": [
         "ときのそら",
@@ -114,6 +135,8 @@ Hololive = {
         "https://yt3.ggpht.com/a/AATXAJzGvZJuJ92qM5WcfBcDZqPFSj_CGIEYp9VFmA=s288-c-k-c0xffffffff-no-rj-mo"
     ],
 } #配信者のチャンネルID, 配信者名, アイコン画像のURLのリスト
+
+
 
 webhook_url_Hololive = '配信開始チャンネル用のwebhookリンク' #ホロライブ配信開始
 webhook_url_Hololive_yotei = '配信開始予定用のwebhookリンク' #ホロライブ配信予定
